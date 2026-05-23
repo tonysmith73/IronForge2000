@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameForge Overlay Simulator</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #e2e8f0;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 20px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #020617;
+      border-left: 5px solid #22c55e;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #020617;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>GameForge Overlay Simulator</h1>
+    <p>A prototype tool for gamers to test builds, damage, and performance before entering the match.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Build Damage Simulator</h2>
+      <p>Enter your weapon damage, attack speed, and bonus multiplier to estimate your damage per second.</p>
+
+      <label>Weapon Damage</label>
+      <input type="number" id="damage" placeholder="Example: 75" />
+
+      <label>Attacks Per Second</label>
+      <input type="number" id="speed" placeholder="Example: 1.5" step="0.1" />
+
+      <label>Bonus Multiplier</label>
+      <select id="multiplier">
+        <option value="1">No Bonus</option>
+        <option value="1.25">25% Bonus</option>
+        <option value="1.5">50% Bonus</option>
+        <option value="2">100% Bonus</option>
+      </select>
+
+      <button onclick="calculateDPS()">Calculate DPS</button>
+
+      <div class="result" id="result">
+        Your result will appear here.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Overlay Features Coming Soon</h2>
+
+      <div class="grid">
+        <div>
+          <h3>Live Match Stats</h3>
+          <p>Track damage, cooldowns, and performance during gameplay.</p>
+        </div>
+
+        <div>
+          <h3>Build Planner</h3>
+          <p>Test different weapons, perks, and upgrades before playing.</p>
+        </div>
+
+        <div>
+          <h3>Team Optimiser</h3>
+          <p>Compare team roles and find better combinations.</p>
+        </div>
+
+        <div>
+          <h3>Meta Tracker</h3>
+          <p>See what builds are performing best over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why This Exists</h2>
+      <p>
+        Many gaming communities rely on scattered spreadsheets, Discord advice,
+        and guesswork. This tool aims to turn that chaos into a simple simulator
+        and overlay system.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Prototype created by Tony · GameForge Overlay Simulator</p>
+  </footer>
+
+  <script>
+    function calculateDPS() {
+      const damage = Number(document.getElementById("damage").value);
+      const speed = Number(document.getElementById("speed").value);
+      const multiplier = Number(document.getElementById("multiplier").value);
+
+      if (!damage || !speed) {
+        document.getElementById("result").innerText = "Please enter weapon damage and attack speed.";
+        return;
+      }
+
+      const dps = damage * speed * multiplier;
+
+      document.getElementById("result").innerText =
+        "Estimated DPS: " + dps.toFixed(2);
+    }
+  </script>
+</body>
+</html>
