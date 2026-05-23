@@ -3,205 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronForge 2000</title>
+<title>IronForge Fitness</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#050505;color:#fff}
-header{padding:28px 7%;background:#090909;border-bottom:2px solid #ff5a00;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:26px;font-weight:bold;color:#ff5a00}
-nav a{color:#ddd;margin-left:18px;text-decoration:none}
-.hero{padding:70px 7%;display:grid;grid-template-columns:1fr 1fr;gap:35px;background:radial-gradient(circle at top right,#4a1200,#050505 55%)}
-h1{font-size:56px;margin:0;line-height:1.05}
-span{color:#ff5a00}
-p{color:#cbd5e1;line-height:1.5}
-.panel,.card{background:#111827;border:1px solid #333;border-radius:18px;padding:22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+body{margin:0;font-family:Arial,sans-serif;background:#070707;color:white}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:#050505;border-bottom:1px solid #f97316}
+.logo{font-size:26px;font-weight:bold;color:#f97316}
+nav a{color:#ddd;text-decoration:none;margin-left:18px}
+.hero{padding:75px 7%;display:grid;grid-template-columns:1fr 1fr;gap:35px;background:radial-gradient(circle at top right,#7c2d12,#070707 55%)}
+h1{font-size:58px;line-height:1.05;margin:0}
+span{color:#f97316}
+p{color:#cbd5e1;line-height:1.6}
 section{padding:55px 7%}
-label{display:block;margin-top:12px;color:#ddd}
-input,select{width:100%;padding:12px;margin-top:6px;background:#020617;color:white;border:1px solid #475569;border-radius:10px}
-button{margin-top:16px;width:100%;padding:14px;background:#ff5a00;color:black;border:none;border-radius:10px;font-weight:bold;cursor:pointer}
-.result{margin-top:18px;background:#020617;border-left:5px solid #ff5a00;padding:16px;border-radius:10px}
-.bar{height:12px;background:#222;border-radius:20px;overflow:hidden;margin:8px 0 15px}
-.fill{height:100%;background:#ff5a00;width:50%}
-.overlay{background:#020617;border:2px solid #ff5a00;border-radius:18px;padding:20px;position:relative;min-height:360px;box-shadow:0 0 35px rgba(255,90,0,.25)}
-.hud-top{display:flex;justify-content:space-between}
-.hud-box{background:rgba(255,90,0,.12);border:1px solid #ff5a00;padding:12px;border-radius:10px}
-.crosshair{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-size:48px;color:#ff5a00}
-.minimap{position:absolute;right:20px;bottom:20px;width:120px;height:120px;border:2px solid #ff5a00;border-radius:50%;background:radial-gradient(circle,#333,#050505)}
-.dot{position:absolute;width:9px;height:9px;background:red;border-radius:50%}
-.recoil{height:260px;background:#020617;border:1px solid #334155;border-radius:14px;position:relative;overflow:hidden}
-.shot{width:8px;height:8px;background:#ff5a00;border-radius:50%;position:absolute}
-footer{text-align:center;padding:30px;background:#020617;color:#94a3b8}
-@media(max-width:850px){.hero{grid-template-columns:1fr}h1{font-size:40px}header{flex-direction:column;gap:12px}}
+.panel,.card{background:#111827;border:1px solid #374151;border-radius:20px;padding:24px;box-shadow:0 0 35px rgba(249,115,22,.12)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+label{display:block;margin-top:12px;color:#e5e7eb}
+input,select{width:100%;padding:13px;margin-top:6px;background:#020617;color:white;border:1px solid #475569;border-radius:10px;font-size:16px}
+button,.btn{display:inline-block;width:100%;margin-top:16px;padding:15px;background:#f97316;color:black;border:none;border-radius:12px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none}
+.btn.secondary{background:#1e293b;color:white;border:1px solid #64748b}
+.result{margin-top:18px;background:#020617;border-left:5px solid #f97316;padding:16px;border-radius:12px}
+.price{font-size:38px;font-weight:bold;color:#f97316}
+.badge{display:inline-block;background:#7c2d12;color:#fed7aa;padding:6px 10px;border-radius:999px;margin-bottom:12px}
+ul{color:#cbd5e1;line-height:1.8}
+footer{text-align:center;padding:32px;background:#020617;color:#94a3b8}
+@media(max-width:850px){.hero{grid-template-columns:1fr}h1{font-size:42px}header{flex-direction:column;gap:12px}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">IRONFORGE 2000</div>
+  <div class="logo">IRONFORGE FITNESS</div>
   <nav>
-    <a href="#sim">Simulator</a>
-    <a href="#overlay">Overlay</a>
-    <a href="#compare">Compare</a>
+    <a href="#calculator">Plan</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Start</a>
   </nav>
 </header>
 
 <div class="hero">
   <div>
-    <h1>Tactical <span>loadout simulator</span> and overlay prototype.</h1>
+    <div class="badge">8-Week Personal Fitness Plans</div>
+    <h1>Build your body with a <span>clear plan</span>, not guesswork.</h1>
     <p>
-      Test weapon damage, fire rate, armour, recoil and time-to-kill before battle.
-      IronForge 2000 is built as a shooter companion tool, not a fantasy calculator.
+      IronForge Fitness creates simple training and nutrition targets for people who want fat loss,
+      muscle gain, or better everyday strength.
     </p>
+    <a class="btn" href="#calculator">Get My Plan</a>
   </div>
 
-  <div class="overlay" id="overlay">
-    <div class="hud-top">
-      <div class="hud-box">HP: <strong id="hudHp">100</strong></div>
-      <div class="hud-box">AMMO: <strong id="hudAmmo">30</strong></div>
-      <div class="hud-box">TTK: <strong id="hudTtk">0.00s</strong></div>
-    </div>
-    <div class="crosshair">+</div>
-    <div class="minimap">
-      <div class="dot" style="top:35px;left:65px"></div>
-      <div class="dot" style="top:70px;left:38px"></div>
-      <div class="dot" style="top:52px;left:88px"></div>
-    </div>
+  <div class="panel">
+    <h2>What you get</h2>
+    <ul>
+      <li>Calories and protein targets</li>
+      <li>Goal-based workout structure</li>
+      <li>Beginner-friendly plan output</li>
+      <li>Paid upgrade options</li>
+      <li>Direct enquiry form</li>
+    </ul>
   </div>
 </div>
 
-<section id="sim">
-  <h2><span>Weapon</span> Simulator</h2>
+<section id="calculator">
+  <h2>Your <span>Fitness Plan</span> Generator</h2>
 
   <div class="grid">
     <div class="panel">
-      <label>Weapon Name</label>
-      <input id="weapon" value="Raptor AR">
+      <label>Name</label>
+      <input id="name" placeholder="Tony">
 
-      <label>Damage Per Bullet</label>
-      <input type="number" id="damage" value="32">
+      <label>Age</label>
+      <input type="number" id="age" value="52">
 
-      <label>Fire Rate Per Minute</label>
-      <input type="number" id="rpm" value="720">
+      <label>Weight in kg</label>
+      <input type="number" id="weight" value="90">
 
-      <label>Enemy Health</label>
-      <input type="number" id="health" value="150">
+      <label>Height in cm</label>
+      <input type="number" id="height" value="175">
 
-      <label>Armour Reduction %</label>
-      <input type="number" id="armour" value="20">
+      <label>Goal</label>
+      <select id="goal">
+        <option value="fatloss">Fat Loss</option>
+        <option value="muscle">Muscle Gain</option>
+        <option value="strength">Strength</option>
+      </select>
 
-      <label>Recoil Strength</label>
-      <input type="number" id="recoil" value="55">
+      <label>Activity Level</label>
+      <select id="activity">
+        <option value="1.2">Low</option>
+        <option value="1.45">Moderate</option>
+        <option value="1.65">Active</option>
+      </select>
 
-      <button onclick="calculate()">Run Combat Simulation</button>
+      <button onclick="generatePlan()">Generate My Plan</button>
     </div>
 
     <div class="panel">
-      <h3>Combat Results</h3>
-      <div class="result" id="result">Run the simulator.</div>
-
-      <h3>Damage Rating</h3>
-      <div class="bar"><div class="fill" id="damageBar"></div></div>
-
-      <h3>Control Rating</h3>
-      <div class="bar"><div class="fill" id="controlBar"></div></div>
-
-      <h3>Kill Speed</h3>
-      <div class="bar"><div class="fill" id="ttkBar"></div></div>
+      <h3>Your Result</h3>
+      <div class="result" id="planOutput">Fill in the form and generate your plan.</div>
+      <button class="btn secondary" onclick="copyPlan()">Copy Plan</button>
     </div>
   </div>
 </section>
 
-<section id="compare">
-  <h2><span>Recoil</span> Overlay Preview</h2>
+<section id="pricing">
+  <h2>Choose Your <span>Plan</span></h2>
+
   <div class="grid">
-    <div class="panel">
-      <p>This visualises recoil spread for the current weapon. Higher recoil creates a rougher shot pattern.</p>
-      <button onclick="drawRecoil()">Generate Recoil Pattern</button>
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">£9</div>
+      <p>One personalised starter plan.</p>
+      <ul>
+        <li>Calories</li>
+        <li>Protein target</li>
+        <li>Basic workout split</li>
+      </ul>
+      <button onclick="selectPlan('Starter - £9')">Choose Starter</button>
     </div>
-    <div class="recoil" id="recoilBox"></div>
+
+    <div class="card">
+      <h3>8-Week Forge</h3>
+      <div class="price">£29</div>
+      <p>Full 8-week structured plan.</p>
+      <ul>
+        <li>Weekly training structure</li>
+        <li>Nutrition targets</li>
+        <li>Progress check-ins</li>
+      </ul>
+      <button onclick="selectPlan('8-Week Forge - £29')">Choose Forge</button>
+    </div>
+
+    <div class="card">
+      <h3>Premium Coaching</h3>
+      <div class="price">£79</div>
+      <p>Higher-ticket support package.</p>
+      <ul>
+        <li>Custom plan</li>
+        <li>Weekly updates</li>
+        <li>Direct support</li>
+      </ul>
+      <button onclick="selectPlan('Premium Coaching - £79')">Choose Premium</button>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>What this is aiming at</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Pre-match simulator</h3>
-      <p>Players test loadouts before entering a match.</p>
-    </div>
-    <div class="card">
-      <h3>Overlay concept</h3>
-      <p>HUD-style display for ammo, health, TTK and tactical alerts.</p>
-    </div>
-    <div class="card">
-      <h3>Weapon comparison</h3>
-      <p>Compare rifles, SMGs, armour effects and recoil control.</p>
-    </div>
-    <div class="card">
-      <h3>Commercial angle</h3>
-      <p>Build the tool first, then pitch it to shooter communities, creators or esports teams.</p>
+<section id="contact">
+  <h2>Start Your <span>Transformation</span></h2>
+
+  <div class="panel">
+    <p id="chosenPlan">No plan selected yet.</p>
+
+    <label>Your Email</label>
+    <input id="email" placeholder="you@example.com">
+
+    <label>Message</label>
+    <input id="message" placeholder="I want help with fat loss, muscle, or strength">
+
+    <button onclick="sendEnquiry()">Create Enquiry Email</button>
+
+    <div class="result" id="contactResult">
+      Your enquiry link will appear here.
     </div>
   </div>
 </section>
 
 <footer>
-  IronForge 2000 · Tactical shooter simulator and overlay prototype
+  IronForge Fitness · Personal training plans, transformation systems and coaching enquiries
 </footer>
 
 <script>
-function calculate(){
-  const weapon=document.getElementById("weapon").value;
-  const damage=Number(document.getElementById("damage").value);
-  const rpm=Number(document.getElementById("rpm").value);
-  const health=Number(document.getElementById("health").value);
-  const armour=Number(document.getElementById("armour").value);
-  const recoil=Number(document.getElementById("recoil").value);
+let selectedPlan = "";
+let latestPlanText = "";
 
-  const realDamage=damage*(1-armour/100);
-  const bullets=Math.ceil(health/realDamage);
-  const secondsPerBullet=60/rpm;
-  const ttk=(bullets-1)*secondsPerBullet;
-  const control=Math.max(0,100-recoil);
+function generatePlan(){
+  const name = document.getElementById("name").value || "Client";
+  const age = Number(document.getElementById("age").value);
+  const weight = Number(document.getElementById("weight").value);
+  const height = Number(document.getElementById("height").value);
+  const goal = document.getElementById("goal").value;
+  const activity = Number(document.getElementById("activity").value);
 
-  document.getElementById("result").innerHTML=
-    "<strong>"+weapon+"</strong><br>"+
-    "Effective Damage: "+realDamage.toFixed(1)+"<br>"+
-    "Bullets to Kill: "+bullets+"<br>"+
-    "Time To Kill: "+ttk.toFixed(2)+" seconds<br>"+
-    "Control Rating: "+control+"/100";
+  const bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  let calories = bmr * activity;
+  let training = "";
 
-  document.getElementById("hudTtk").innerText=ttk.toFixed(2)+"s";
-  document.getElementById("hudHp").innerText=health;
-  document.getElementById("hudAmmo").innerText=Math.max(0,30-bullets);
-
-  document.getElementById("damageBar").style.width=Math.min(100,damage*2)+"%";
-  document.getElementById("controlBar").style.width=control+"%";
-  document.getElementById("ttkBar").style.width=Math.max(10,100-(ttk*45))+"%";
-
-  drawRecoil();
-}
-
-function drawRecoil(){
-  const box=document.getElementById("recoilBox");
-  box.innerHTML="";
-  const recoil=Number(document.getElementById("recoil").value);
-  let x=50;
-  let y=220;
-
-  for(let i=0;i<24;i++){
-    x += (Math.random()-.5)*(recoil/5);
-    y -= 8 + Math.random()*5;
-
-    const shot=document.createElement("div");
-    shot.className="shot";
-    shot.style.left=Math.max(5,Math.min(95,x))+"%";
-    shot.style.top=Math.max(5,Math.min(95,y/2.6))+"%";
-    box.appendChild(shot);
+  if(goal === "fatloss"){
+    calories -= 450;
+    training = "3 strength sessions + 2 light cardio sessions per week";
   }
+
+  if(goal === "muscle"){
+    calories += 300;
+    training = "4 strength sessions per week with progressive overload";
+  }
+
+  if(goal === "strength"){
+    calories += 150;
+    training = "4 heavy strength sessions focused on compound lifts";
+  }
+
+  const protein = weight * 2;
+
+  latestPlanText =
+`${name}'s IronForge Fitness Plan
+
+Daily Calories: ${Math.round(calories)} kcal
+Protein Target: ${Math.round(protein)}g per day
+Training: ${training}
+
+Suggested next step:
+Choose the 8-Week Forge plan for a complete weekly structure.`;
+
+  document.getElementById("planOutput").innerHTML =
+    "<strong>" + name + "'s Plan</strong><br><br>" +
+    "Daily Calories: " + Math.round(calories) + " kcal<br>" +
+    "Protein Target: " + Math.round(protein) + "g per day<br>" +
+    "Training: " + training + "<br><br>" +
+    "<strong>Recommended:</strong> 8-Week Forge Plan";
 }
 
-calculate();
+function copyPlan(){
+  if(!latestPlanText){
+    alert("Generate a plan first.");
+    return;
+  }
+  navigator.clipboard.writeText(latestPlanText);
+  alert("Plan copied.");
+}
+
+function selectPlan(plan){
+  selectedPlan = plan;
+  document.getElementById("chosenPlan").innerText = "Selected plan: " + plan;
+  location.href = "#contact";
+}
+
+function sendEnquiry(){
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value || "I want to start a fitness plan.";
+
+  if(!email.includes("@")){
+    document.getElementById("contactResult").innerText = "Enter a valid email first.";
+    return;
+  }
+
+  const subject = encodeURIComponent("IronForge Fitness Enquiry - " + selectedPlan);
+  const body = encodeURIComponent(
+    "Customer email: " + email + "\n\n" +
+    "Selected plan: " + selectedPlan + "\n\n" +
+    "Message: " + message + "\n\n" +
+    "Generated plan:\n" + latestPlanText
+  );
+
+  const mailLink = "mailto:tonymalcolmsmith73@gmail.com?subject=" + subject + "&body=" + body;
+
+  document.getElementById("contactResult").innerHTML =
+    "Click below to send the enquiry:<br><br>" +
+    "<a class='btn' href='" + mailLink + "'>Send Enquiry Email</a>";
+}
 </script>
 
 </body>
