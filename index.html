@@ -1,309 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IronForge 2000</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #3b0a0a, #050505 55%);
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      background: rgba(0,0,0,0.65);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #f97316;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: #ddd;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-
-    .hero {
-      padding: 90px 8%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.05;
-      margin: 0;
-    }
-
-    .hero span {
-      color: #f97316;
-    }
-
-    .hero p {
-      color: #cbd5e1;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 24px;
-      background: #dc2626;
-      color: white;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .panel {
-      background: linear-gradient(145deg, #111827, #1f2937);
-      border: 1px solid #7f1d1d;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 0 45px rgba(220, 38, 38, 0.35);
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      color: #e5e7eb;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 13px;
-      margin-top: 7px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      background: #020617;
-      color: white;
-      border: 1px solid #334155;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 22px;
-      padding: 15px;
-      background: #f97316;
-      color: black;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .result {
-      margin-top: 20px;
-      background: #020617;
-      padding: 18px;
-      border-radius: 12px;
-      border-left: 5px solid #f97316;
-      font-size: 20px;
-    }
-
-    section {
-      padding: 70px 8%;
-    }
-
-    h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: rgba(15, 23, 42, 0.9);
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid #334155;
-    }
-
-    .card h3 {
-      color: #f97316;
-    }
-
-    .price {
-      font-size: 38px;
-      color: #f97316;
-      font-weight: bold;
-    }
-
-    footer {
-      padding: 35px;
-      text-align: center;
-      background: #020617;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronForge 2000</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#050505;color:#fff}
+header{padding:28px 7%;background:#090909;border-bottom:2px solid #ff5a00;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:26px;font-weight:bold;color:#ff5a00}
+nav a{color:#ddd;margin-left:18px;text-decoration:none}
+.hero{padding:70px 7%;display:grid;grid-template-columns:1fr 1fr;gap:35px;background:radial-gradient(circle at top right,#4a1200,#050505 55%)}
+h1{font-size:56px;margin:0;line-height:1.05}
+span{color:#ff5a00}
+p{color:#cbd5e1;line-height:1.5}
+.panel,.card{background:#111827;border:1px solid #333;border-radius:18px;padding:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+section{padding:55px 7%}
+label{display:block;margin-top:12px;color:#ddd}
+input,select{width:100%;padding:12px;margin-top:6px;background:#020617;color:white;border:1px solid #475569;border-radius:10px}
+button{margin-top:16px;width:100%;padding:14px;background:#ff5a00;color:black;border:none;border-radius:10px;font-weight:bold;cursor:pointer}
+.result{margin-top:18px;background:#020617;border-left:5px solid #ff5a00;padding:16px;border-radius:10px}
+.bar{height:12px;background:#222;border-radius:20px;overflow:hidden;margin:8px 0 15px}
+.fill{height:100%;background:#ff5a00;width:50%}
+.overlay{background:#020617;border:2px solid #ff5a00;border-radius:18px;padding:20px;position:relative;min-height:360px;box-shadow:0 0 35px rgba(255,90,0,.25)}
+.hud-top{display:flex;justify-content:space-between}
+.hud-box{background:rgba(255,90,0,.12);border:1px solid #ff5a00;padding:12px;border-radius:10px}
+.crosshair{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-size:48px;color:#ff5a00}
+.minimap{position:absolute;right:20px;bottom:20px;width:120px;height:120px;border:2px solid #ff5a00;border-radius:50%;background:radial-gradient(circle,#333,#050505)}
+.dot{position:absolute;width:9px;height:9px;background:red;border-radius:50%}
+.recoil{height:260px;background:#020617;border:1px solid #334155;border-radius:14px;position:relative;overflow:hidden}
+.shot{width:8px;height:8px;background:#ff5a00;border-radius:50%;position:absolute}
+footer{text-align:center;padding:30px;background:#020617;color:#94a3b8}
+@media(max-width:850px){.hero{grid-template-columns:1fr}h1{font-size:40px}header{flex-direction:column;gap:12px}}
+</style>
 </head>
-
 <body>
 
+<header>
+  <div class="logo">IRONFORGE 2000</div>
   <nav>
-    <div class="logo">IRONFORGE 2000</div>
-    <div>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#simulator">Simulator</a>
-    </div>
+    <a href="#sim">Simulator</a>
+    <a href="#overlay">Overlay</a>
+    <a href="#compare">Compare</a>
   </nav>
+</header>
 
-  <div class="hero">
-    <div>
-      <h1>Forge stronger <span>gaming builds</span> before the match begins.</h1>
-      <p>
-        IronForge 2000 is a prototype gaming overlay and build simulator platform
-        designed for players who want sharper stats, better loadouts, and faster decisions.
-      </p>
-      <a class="button" href="#simulator">Try the simulator</a>
-    </div>
-
-    <div class="panel" id="simulator">
-      <h2>Damage Simulator</h2>
-
-      <label>Weapon Damage</label>
-      <input type="number" id="damage" placeholder="Example: 85">
-
-      <label>Attack Speed</label>
-      <input type="number" id="speed" placeholder="Example: 1.7" step="0.1">
-
-      <label>Critical Chance %</label>
-      <input type="number" id="crit" placeholder="Example: 25">
-
-      <label>Build Bonus</label>
-      <select id="bonus">
-        <option value="1">Standard Build</option>
-        <option value="1.2">Aggressive Build +20%</option>
-        <option value="1.5">Elite Build +50%</option>
-        <option value="2">Overpowered Build +100%</option>
-      </select>
-
-      <button onclick="calculateBuild()">Forge Build Score</button>
-
-      <div class="result" id="result">
-        Your build score will appear here.
-      </div>
-    </div>
+<div class="hero">
+  <div>
+    <h1>Tactical <span>loadout simulator</span> and overlay prototype.</h1>
+    <p>
+      Test weapon damage, fire rate, armour, recoil and time-to-kill before battle.
+      IronForge 2000 is built as a shooter companion tool, not a fantasy calculator.
+    </p>
   </div>
 
-  <section id="features">
-    <h2>Built for serious players</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Build Simulator</h3>
-        <p>Test weapons, speed, critical chance, and damage bonuses before playing.</p>
-      </div>
-
-      <div class="card">
-        <h3>Overlay Concept</h3>
-        <p>Future live match overlay for stats, cooldowns, and performance tracking.</p>
-      </div>
-
-      <div class="card">
-        <h3>Meta Tracking</h3>
-        <p>Track which loadouts perform best across different play styles.</p>
-      </div>
-
-      <div class="card">
-        <h3>Team Optimiser</h3>
-        <p>Plan team roles and combinations before competitive matches.</p>
-      </div>
+  <div class="overlay" id="overlay">
+    <div class="hud-top">
+      <div class="hud-box">HP: <strong id="hudHp">100</strong></div>
+      <div class="hud-box">AMMO: <strong id="hudAmmo">30</strong></div>
+      <div class="hud-box">TTK: <strong id="hudTtk">0.00s</strong></div>
     </div>
-  </section>
-
-  <section id="pricing">
-    <h2>Future pricing model</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Free</h3>
-        <div class="price">£0</div>
-        <p>Basic simulator access.</p>
-      </div>
-
-      <div class="card">
-        <h3>Forge Pro</h3>
-        <div class="price">£4.99</div>
-        <p>Advanced build saving, deeper stats, and future overlay tools.</p>
-      </div>
-
-      <div class="card">
-        <h3>Team</h3>
-        <div class="price">£14.99</div>
-        <p>Shared builds, team planning, and performance dashboards.</p>
-      </div>
+    <div class="crosshair">+</div>
+    <div class="minimap">
+      <div class="dot" style="top:35px;left:65px"></div>
+      <div class="dot" style="top:70px;left:38px"></div>
+      <div class="dot" style="top:52px;left:88px"></div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <footer>
-    IronForge 2000 · Gaming overlay and simulator prototype · Built by Tony
-  </footer>
+<section id="sim">
+  <h2><span>Weapon</span> Simulator</h2>
 
-  <script>
-    function calculateBuild() {
-      const damage = Number(document.getElementById("damage").value);
-      const speed = Number(document.getElementById("speed").value);
-      const crit = Number(document.getElementById("crit").value);
-      const bonus = Number(document.getElementById("bonus").value);
+  <div class="grid">
+    <div class="panel">
+      <label>Weapon Name</label>
+      <input id="weapon" value="Raptor AR">
 
-      if (!damage || !speed) {
-        document.getElementById("result").innerText =
-          "Enter weapon damage and attack speed first.";
-        return;
-      }
+      <label>Damage Per Bullet</label>
+      <input type="number" id="damage" value="32">
 
-      const critBonus = 1 + (crit / 100);
-      const score = damage * speed * critBonus * bonus;
+      <label>Fire Rate Per Minute</label>
+      <input type="number" id="rpm" value="720">
 
-      document.getElementById("result").innerText =
-        "Forged Build Score: " + score.toFixed(2);
-    }
-  </script>
+      <label>Enemy Health</label>
+      <input type="number" id="health" value="150">
+
+      <label>Armour Reduction %</label>
+      <input type="number" id="armour" value="20">
+
+      <label>Recoil Strength</label>
+      <input type="number" id="recoil" value="55">
+
+      <button onclick="calculate()">Run Combat Simulation</button>
+    </div>
+
+    <div class="panel">
+      <h3>Combat Results</h3>
+      <div class="result" id="result">Run the simulator.</div>
+
+      <h3>Damage Rating</h3>
+      <div class="bar"><div class="fill" id="damageBar"></div></div>
+
+      <h3>Control Rating</h3>
+      <div class="bar"><div class="fill" id="controlBar"></div></div>
+
+      <h3>Kill Speed</h3>
+      <div class="bar"><div class="fill" id="ttkBar"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <h2><span>Recoil</span> Overlay Preview</h2>
+  <div class="grid">
+    <div class="panel">
+      <p>This visualises recoil spread for the current weapon. Higher recoil creates a rougher shot pattern.</p>
+      <button onclick="drawRecoil()">Generate Recoil Pattern</button>
+    </div>
+    <div class="recoil" id="recoilBox"></div>
+  </div>
+</section>
+
+<section>
+  <h2>What this is aiming at</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Pre-match simulator</h3>
+      <p>Players test loadouts before entering a match.</p>
+    </div>
+    <div class="card">
+      <h3>Overlay concept</h3>
+      <p>HUD-style display for ammo, health, TTK and tactical alerts.</p>
+    </div>
+    <div class="card">
+      <h3>Weapon comparison</h3>
+      <p>Compare rifles, SMGs, armour effects and recoil control.</p>
+    </div>
+    <div class="card">
+      <h3>Commercial angle</h3>
+      <p>Build the tool first, then pitch it to shooter communities, creators or esports teams.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  IronForge 2000 · Tactical shooter simulator and overlay prototype
+</footer>
+
+<script>
+function calculate(){
+  const weapon=document.getElementById("weapon").value;
+  const damage=Number(document.getElementById("damage").value);
+  const rpm=Number(document.getElementById("rpm").value);
+  const health=Number(document.getElementById("health").value);
+  const armour=Number(document.getElementById("armour").value);
+  const recoil=Number(document.getElementById("recoil").value);
+
+  const realDamage=damage*(1-armour/100);
+  const bullets=Math.ceil(health/realDamage);
+  const secondsPerBullet=60/rpm;
+  const ttk=(bullets-1)*secondsPerBullet;
+  const control=Math.max(0,100-recoil);
+
+  document.getElementById("result").innerHTML=
+    "<strong>"+weapon+"</strong><br>"+
+    "Effective Damage: "+realDamage.toFixed(1)+"<br>"+
+    "Bullets to Kill: "+bullets+"<br>"+
+    "Time To Kill: "+ttk.toFixed(2)+" seconds<br>"+
+    "Control Rating: "+control+"/100";
+
+  document.getElementById("hudTtk").innerText=ttk.toFixed(2)+"s";
+  document.getElementById("hudHp").innerText=health;
+  document.getElementById("hudAmmo").innerText=Math.max(0,30-bullets);
+
+  document.getElementById("damageBar").style.width=Math.min(100,damage*2)+"%";
+  document.getElementById("controlBar").style.width=control+"%";
+  document.getElementById("ttkBar").style.width=Math.max(10,100-(ttk*45))+"%";
+
+  drawRecoil();
+}
+
+function drawRecoil(){
+  const box=document.getElementById("recoilBox");
+  box.innerHTML="";
+  const recoil=Number(document.getElementById("recoil").value);
+  let x=50;
+  let y=220;
+
+  for(let i=0;i<24;i++){
+    x += (Math.random()-.5)*(recoil/5);
+    y -= 8 + Math.random()*5;
+
+    const shot=document.createElement("div");
+    shot.className="shot";
+    shot.style.left=Math.max(5,Math.min(95,x))+"%";
+    shot.style.top=Math.max(5,Math.min(95,y/2.6))+"%";
+    box.appendChild(shot);
+  }
+}
+
+calculate();
+</script>
 
 </body>
 </html>
