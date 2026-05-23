@@ -3,188 +3,307 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameForge Overlay Simulator</title>
+  <title>IronForge 2000</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: radial-gradient(circle at top, #3b0a0a, #050505 55%);
       color: white;
     }
 
-    header {
-      padding: 50px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #111827, #1e3a8a);
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: rgba(0,0,0,0.65);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 10;
     }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f97316;
+      letter-spacing: 1px;
     }
 
-    p {
+    nav a {
+      color: #ddd;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .hero span {
+      color: #f97316;
+    }
+
+    .hero p {
       color: #cbd5e1;
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1.6;
     }
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 30px 20px;
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 24px;
+      background: #dc2626;
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .card {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    .panel {
+      background: linear-gradient(145deg, #111827, #1f2937);
+      border: 1px solid #7f1d1d;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 0 45px rgba(220, 38, 38, 0.35);
     }
 
     label {
       display: block;
       margin-top: 15px;
-      color: #e2e8f0;
+      color: #e5e7eb;
     }
 
     input, select {
       width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border-radius: 8px;
+      padding: 13px;
+      margin-top: 7px;
+      border-radius: 10px;
       border: none;
       font-size: 16px;
+      background: #020617;
+      color: white;
+      border: 1px solid #334155;
     }
 
     button {
-      margin-top: 20px;
-      padding: 14px 20px;
-      background: #22c55e;
-      color: white;
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px;
+      background: #f97316;
+      color: black;
+      font-weight: bold;
       border: none;
-      border-radius: 10px;
-      font-size: 18px;
+      border-radius: 12px;
+      font-size: 17px;
       cursor: pointer;
-    }
-
-    button:hover {
-      background: #16a34a;
     }
 
     .result {
       margin-top: 20px;
-      padding: 20px;
       background: #020617;
-      border-left: 5px solid #22c55e;
-      border-radius: 10px;
+      padding: 18px;
+      border-radius: 12px;
+      border-left: 5px solid #f97316;
       font-size: 20px;
     }
 
-    .grid {
+    section {
+      padding: 70px 8%;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid #334155;
+    }
+
+    .card h3 {
+      color: #f97316;
+    }
+
+    .price {
+      font-size: 38px;
+      color: #f97316;
+      font-weight: bold;
     }
 
     footer {
+      padding: 35px;
       text-align: center;
-      padding: 25px;
       background: #020617;
       color: #94a3b8;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>GameForge Overlay Simulator</h1>
-    <p>A prototype tool for gamers to test builds, damage, and performance before entering the match.</p>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>Build Damage Simulator</h2>
-      <p>Enter your weapon damage, attack speed, and bonus multiplier to estimate your damage per second.</p>
+  <nav>
+    <div class="logo">IRONFORGE 2000</div>
+    <div>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#simulator">Simulator</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <h1>Forge stronger <span>gaming builds</span> before the match begins.</h1>
+      <p>
+        IronForge 2000 is a prototype gaming overlay and build simulator platform
+        designed for players who want sharper stats, better loadouts, and faster decisions.
+      </p>
+      <a class="button" href="#simulator">Try the simulator</a>
+    </div>
+
+    <div class="panel" id="simulator">
+      <h2>Damage Simulator</h2>
 
       <label>Weapon Damage</label>
-      <input type="number" id="damage" placeholder="Example: 75" />
+      <input type="number" id="damage" placeholder="Example: 85">
 
-      <label>Attacks Per Second</label>
-      <input type="number" id="speed" placeholder="Example: 1.5" step="0.1" />
+      <label>Attack Speed</label>
+      <input type="number" id="speed" placeholder="Example: 1.7" step="0.1">
 
-      <label>Bonus Multiplier</label>
-      <select id="multiplier">
-        <option value="1">No Bonus</option>
-        <option value="1.25">25% Bonus</option>
-        <option value="1.5">50% Bonus</option>
-        <option value="2">100% Bonus</option>
+      <label>Critical Chance %</label>
+      <input type="number" id="crit" placeholder="Example: 25">
+
+      <label>Build Bonus</label>
+      <select id="bonus">
+        <option value="1">Standard Build</option>
+        <option value="1.2">Aggressive Build +20%</option>
+        <option value="1.5">Elite Build +50%</option>
+        <option value="2">Overpowered Build +100%</option>
       </select>
 
-      <button onclick="calculateDPS()">Calculate DPS</button>
+      <button onclick="calculateBuild()">Forge Build Score</button>
 
       <div class="result" id="result">
-        Your result will appear here.
+        Your build score will appear here.
       </div>
-    </section>
+    </div>
+  </div>
 
-    <section class="card">
-      <h2>Overlay Features Coming Soon</h2>
+  <section id="features">
+    <h2>Built for serious players</h2>
 
-      <div class="grid">
-        <div>
-          <h3>Live Match Stats</h3>
-          <p>Track damage, cooldowns, and performance during gameplay.</p>
-        </div>
-
-        <div>
-          <h3>Build Planner</h3>
-          <p>Test different weapons, perks, and upgrades before playing.</p>
-        </div>
-
-        <div>
-          <h3>Team Optimiser</h3>
-          <p>Compare team roles and find better combinations.</p>
-        </div>
-
-        <div>
-          <h3>Meta Tracker</h3>
-          <p>See what builds are performing best over time.</p>
-        </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Build Simulator</h3>
+        <p>Test weapons, speed, critical chance, and damage bonuses before playing.</p>
       </div>
-    </section>
 
-    <section class="card">
-      <h2>Why This Exists</h2>
-      <p>
-        Many gaming communities rely on scattered spreadsheets, Discord advice,
-        and guesswork. This tool aims to turn that chaos into a simple simulator
-        and overlay system.
-      </p>
-    </section>
-  </main>
+      <div class="card">
+        <h3>Overlay Concept</h3>
+        <p>Future live match overlay for stats, cooldowns, and performance tracking.</p>
+      </div>
+
+      <div class="card">
+        <h3>Meta Tracking</h3>
+        <p>Track which loadouts perform best across different play styles.</p>
+      </div>
+
+      <div class="card">
+        <h3>Team Optimiser</h3>
+        <p>Plan team roles and combinations before competitive matches.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Future pricing model</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Free</h3>
+        <div class="price">£0</div>
+        <p>Basic simulator access.</p>
+      </div>
+
+      <div class="card">
+        <h3>Forge Pro</h3>
+        <div class="price">£4.99</div>
+        <p>Advanced build saving, deeper stats, and future overlay tools.</p>
+      </div>
+
+      <div class="card">
+        <h3>Team</h3>
+        <div class="price">£14.99</div>
+        <p>Shared builds, team planning, and performance dashboards.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>Prototype created by Tony · GameForge Overlay Simulator</p>
+    IronForge 2000 · Gaming overlay and simulator prototype · Built by Tony
   </footer>
 
   <script>
-    function calculateDPS() {
+    function calculateBuild() {
       const damage = Number(document.getElementById("damage").value);
       const speed = Number(document.getElementById("speed").value);
-      const multiplier = Number(document.getElementById("multiplier").value);
+      const crit = Number(document.getElementById("crit").value);
+      const bonus = Number(document.getElementById("bonus").value);
 
       if (!damage || !speed) {
-        document.getElementById("result").innerText = "Please enter weapon damage and attack speed.";
+        document.getElementById("result").innerText =
+          "Enter weapon damage and attack speed first.";
         return;
       }
 
-      const dps = damage * speed * multiplier;
+      const critBonus = 1 + (crit / 100);
+      const score = damage * speed * critBonus * bonus;
 
       document.getElementById("result").innerText =
-        "Estimated DPS: " + dps.toFixed(2);
+        "Forged Build Score: " + score.toFixed(2);
     }
   </script>
+
 </body>
 </html>
